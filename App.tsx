@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Scroll, Sun, CheckCircle2, Star } from 'lucide-react';
 import OrnamentalDivider from './components/OrnamentalDivider';
 import WhatsAppButton from './components/WhatsAppButton';
+import UpsellSection from './components/UpsellSection';
 
 const App: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
@@ -30,7 +31,7 @@ const App: React.FC = () => {
         <div className="bg-white/90 backdrop-blur-sm shadow-2xl rounded-lg p-1.5 md:p-3 border border-sacred-gold/30">
           <div className="border-[1.5px] border-sacred-gold/40 border-dashed rounded-lg p-6 md:p-12 text-center flex flex-col items-center relative overflow-hidden">
             
-            {/* Corner Ornaments (CSS pseudo-elements could work, but SVGs are cleaner for React) */}
+            {/* Corner Ornaments */}
             <div className="absolute top-2 left-2 text-sacred-gold/40">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm2 2h20v20H2V2z"/></svg>
             </div>
@@ -66,26 +67,34 @@ const App: React.FC = () => {
 
             <OrnamentalDivider />
 
-            {/* Explanatory Text */}
-            <div className="prose prose-slate max-w-md mx-auto mb-8">
-              <div className="flex items-start justify-center gap-3 text-left bg-blue-50/50 p-4 rounded-md border border-blue-100">
-                 <CheckCircle2 className="text-green-600 w-6 h-6 flex-shrink-0 mt-0.5" />
-                 <p className="text-gray-600 font-sans text-base leading-relaxed m-0">
-                   O conteúdo já foi enviado automaticamente para seu e-mail. Se desejar, você também pode recebê-lo pelo WhatsApp.
-                 </p>
-              </div>
-            </div>
+            {/* Upsell Section Integration - Positioned ABOVE Delivery Content */}
+            <UpsellSection />
 
-            {/* WhatsApp CTA */}
-            <div className="w-full flex flex-col items-center gap-4">
-              <WhatsAppButton />
+            {/* Delivery & WhatsApp Group */}
+            <div className="w-full mt-8 flex flex-col gap-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               
-              <div className="flex items-center gap-2 text-amber-800/80 text-sm font-sans mt-2 animate-bounce-slow">
-                <Scroll size={16} />
-                <span className="font-medium italic">
-                  “Receba seu conteúdo e descubra o poder sagrado de Moisés imediatamente.”
-                </span>
+              {/* Explanatory Text */}
+              <div className="prose prose-slate max-w-md mx-auto w-full">
+                <div className="flex items-start justify-center gap-3 text-left bg-blue-50/50 p-4 rounded-md border border-blue-100">
+                   <CheckCircle2 className="text-green-600 w-6 h-6 flex-shrink-0 mt-0.5" />
+                   <p className="text-gray-600 font-sans text-base leading-relaxed m-0">
+                     O conteúdo já foi enviado automaticamente para seu e-mail. Se desejar, você também pode recebê-lo pelo WhatsApp.
+                   </p>
+                </div>
               </div>
+
+              {/* WhatsApp CTA */}
+              <div className="w-full flex flex-col items-center gap-4">
+                <WhatsAppButton />
+                
+                <div className="flex items-center gap-2 text-amber-800/80 text-sm font-sans mt-2">
+                  <Scroll size={16} />
+                  <span className="font-medium italic">
+                    “Receba seu conteúdo e descubra o poder sagrado de Moisés imediatamente.”
+                  </span>
+                </div>
+              </div>
+
             </div>
 
             {/* Decorative bottom fade */}
