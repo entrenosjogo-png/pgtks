@@ -2,13 +2,17 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://lucide.dev/icons/scroll.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Obrigado - O Elemento Sagrado de Moisés</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="https://lucide.dev/icons/scroll.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -51,18 +55,32 @@
         }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.560.0"
-  }
-}
-</script>
-</head>
+
+    <!-- Import Map: Deve vir ANTES dos scripts type="module" -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.560.0"
+      }
+    }
+    </script>
+  </head>
   <body>
+    <!-- Facebook Pixel NoScript: Deve ficar dentro do BODY -->
+    <noscript>
+      <!-- <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=SEU_ID_DO_PIXEL&ev=PageView&noscript=1" /> -->
+    </noscript>
+
+    <!-- App Root -->
     <div id="root"></div>
+
+    <!-- Main Entry Script -->
+    <script type="module" src="/index.tsx"></script>
+
+    <!-- Scripts de Terceiros (Analytics, GTM, etc) - Ficam no final do body -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script> -->
   </body>
 </html>
